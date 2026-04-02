@@ -2,9 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/sections/Header.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
+import TrustSection from '../components/sections/TrustSection.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
 import ServicesSection from '../components/sections/ServicesSection.astro';
+import TeamSection from '../components/sections/TeamSection.astro';
+import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
+import FloatingCTA from '../components/sections/FloatingCTA.astro';
 import { site } from '../data/site';
 ---
 
@@ -13,18 +17,22 @@ import { site } from '../data/site';
     <Header site={site} />
     <main>
       <HeroSection site={site} />
+      <TrustSection site={site} />
       <AboutSection site={site} />
       <ServicesSection site={site} />
+      <TeamSection site={site} />
+      <TestimonialsSection site={site} />
       <ContactSection site={site} />
     </main>
     <footer class="border-t border-[var(--color-border)] py-8 text-sm text-[var(--color-muted)]">
       <div class="shell flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <p>{site.footer.text}</p>
         <p>
-          Marca, colores y contacto editables desde
+          Marca, servicios, equipo y contacto editables desde
           <code class="rounded bg-white px-2 py-1 text-[var(--color-primary)] shadow-[0_8px_20px_rgba(18,22,29,0.05)]">src/data/site.ts</code>
         </p>
       </div>
     </footer>
+    <FloatingCTA site={site} />
   </div>
 </BaseLayout>

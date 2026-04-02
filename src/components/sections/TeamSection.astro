@@ -1,0 +1,46 @@
+---
+import type { SiteConfig } from '../../data/site';
+
+interface Props {
+  site: SiteConfig;
+}
+
+const { site } = Astro.props;
+---
+
+<section id="equipo" class="section-shell">
+  <div class="shell grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+    <div>
+      <span class="section-kicker">{site.team.eyebrow}</span>
+      <h2 class="section-title mt-4 max-w-xl">{site.team.title}</h2>
+      <p class="mt-6 max-w-xl text-lg leading-8 text-[var(--color-muted)]">{site.team.intro}</p>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-3">
+      {site.team.members.map((member) => (
+        <article class="rounded-[1.75rem] border border-[var(--color-border)] bg-white p-6 shadow-[0_18px_40px_rgba(18,22,29,0.05)]">
+          <div class="flex items-center gap-4">
+            <div class="grid h-14 w-14 place-items-center rounded-full bg-[linear-gradient(135deg,var(--color-accent),var(--color-secondary))] font-display text-lg font-semibold text-white">
+              {member.initials}
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-semibold tracking-[-0.04em] text-[var(--color-primary)]">{member.name}</h3>
+              <p class="text-sm text-[var(--color-muted)]">{member.role}</p>
+            </div>
+          </div>
+
+          <p class="mt-5 text-base leading-7 text-[var(--color-muted)]">{member.focus}</p>
+
+          <ul class="mt-5 space-y-2 text-sm leading-6 text-[var(--color-primary)]">
+            {member.credentials.map((item) => (
+              <li class="flex gap-2">
+                <span class="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-secondary)]"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

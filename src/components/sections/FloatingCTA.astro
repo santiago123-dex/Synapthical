@@ -1,0 +1,19 @@
+---
+import type { SiteConfig } from '../../data/site';
+
+interface Props {
+  site: SiteConfig;
+}
+
+const { site } = Astro.props;
+---
+
+<a
+  href={site.contact.whatsappHref}
+  target="_blank"
+  rel="noreferrer"
+  class="fixed bottom-4 right-4 z-50 inline-flex items-center gap-3 rounded-full bg-[var(--color-secondary)] px-5 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(31,175,196,0.28)] transition hover:translate-y-[-1px] hover:shadow-[0_22px_42px_rgba(31,175,196,0.34)]"
+>
+  <span class="grid h-8 w-8 place-items-center rounded-full bg-white/16">✦</span>
+  <span>Agenda tu valoración</span>
+</a>
