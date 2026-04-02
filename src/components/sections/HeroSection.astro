@@ -13,13 +13,13 @@ const { site } = Astro.props;
   <div class="hero-spotlight"></div>
 
   <div class="shell relative z-10">
-    <div class="hero-panel grid overflow-hidden rounded-[2.25rem] border border-white/10 bg-[linear-gradient(135deg,#0D1B2A_0%,#10263A_58%,#163D56_100%)] text-white lg:grid-cols-[minmax(0,0.98fr)_minmax(360px,0.88fr)]">
-      <div class="px-6 py-10 md:px-10 md:py-14 lg:px-14 lg:py-16">
+    <div class="hero-panel grid overflow-hidden rounded-[2.25rem] border border-white/10 bg-[linear-gradient(135deg,#0D1B2A_0%,#10263A_58%,#163D56_100%)] text-white lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.86fr)]">
+      <div class="flex flex-col justify-center px-6 py-10 md:px-10 md:py-14 lg:px-14 lg:py-16">
         <span class="eyebrow eyebrow-dark">{site.hero.eyebrow}</span>
-        <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] md:text-6xl lg:text-7xl">
+        <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-[0.94] tracking-[-0.05em] md:text-6xl lg:text-7xl">
           {site.hero.headline}
         </h1>
-        <p class="mt-5 max-w-2xl text-base leading-7 text-white/74 md:text-lg md:leading-8">
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/78 md:text-xl">
           {site.hero.description}
         </p>
 
@@ -32,12 +32,6 @@ const { site } = Astro.props;
           >
             {site.hero.cta.label}
             <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
-          </a>
-          <a
-            href={site.hero.secondaryCta.href}
-            class="inline-flex items-center justify-center gap-2 rounded-full border border-white/16 px-6 py-4 text-base font-medium text-white transition hover:border-white/28 hover:bg-white/6"
-          >
-            {site.hero.secondaryCta.label}
           </a>
         </div>
 
@@ -67,7 +61,7 @@ const { site } = Astro.props;
 
     <div class="hero-proof-strip relative z-20 mt-[-1.25rem] grid gap-4 rounded-[1.75rem] border border-[var(--color-border)] bg-white px-5 py-5 shadow-[0_18px_40px_rgba(13,27,42,0.08)] md:grid-cols-3 md:px-8 md:py-6">
       {site.hero.proofItems.map((item) => (
-        <article class="grid gap-2 border-b border-[var(--color-border)] pb-4 last:border-b-0 last:pb-0 md:border-b-0 md:border-r md:pr-5 md:last:border-r-0 md:last:pr-0">
+        <article class="grid h-full gap-2 border-b border-[var(--color-border)] pb-4 last:border-b-0 last:pb-0 md:border-b-0 md:border-r md:pr-5 md:last:border-r-0 md:last:pr-0">
           <p class="text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-accent)]">{item.label}</p>
           <p class="text-sm leading-6 text-[var(--color-muted)]">{item.detail}</p>
         </article>

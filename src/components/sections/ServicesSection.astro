@@ -9,41 +9,41 @@ const { site } = Astro.props;
 ---
 
 <section id="servicios" class="section-shell">
-  <div class="shell grid gap-12 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:gap-16">
-    <div>
+  <div class="shell">
+    <div class="max-w-4xl">
       <span class="section-kicker">{site.services.eyebrow}</span>
-      <h2 class="section-title mt-4 max-w-[14ch]">{site.services.title}</h2>
-      <p class="mt-6 max-w-xl text-lg leading-8 text-[var(--color-muted)]">{site.services.intro}</p>
+      <h2 class="section-title mt-4 max-w-[11ch]">{site.services.title}</h2>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">{site.services.intro}</p>
     </div>
 
-    <div class="grid gap-5">
+    <div class="mt-12 grid gap-6">
       {site.services.featuredItems.map((service, index) => (
         <article class="service-feature rounded-[1.85rem] border border-[var(--color-border)] bg-white p-6 shadow-[0_20px_48px_rgba(13,27,42,0.05)] md:p-8">
-          <div class="grid gap-6 md:grid-cols-[auto_minmax(0,1fr)] md:gap-8">
-            <div class="flex items-start gap-4 md:block">
+          <div class="grid gap-6 xl:grid-cols-[auto_minmax(0,1.25fr)_minmax(280px,0.75fr)] xl:items-start xl:gap-8">
+            <div class="flex items-start gap-4 xl:block">
               <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[color:rgba(25,167,198,0.12)] text-sm font-semibold text-[var(--color-secondary)]">
                 0{index + 1}
               </span>
             </div>
 
-            <div class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-8">
-              <div>
-                <h3 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-primary)] md:text-[2rem]">{service.title}</h3>
-                <p class="mt-4 text-base leading-7 text-[var(--color-muted)]">{service.description}</p>
-                <p class="mt-4 text-sm leading-6 text-[var(--color-text)]"><strong>Ideal para:</strong> {service.forWho}</p>
-              </div>
+            <div class="min-w-0">
+              <h3 class="max-w-3xl text-2xl font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--color-primary)] md:text-[2.2rem]">
+                {service.title}
+              </h3>
+              <p class="mt-4 max-w-3xl text-base leading-7 text-[var(--color-muted)]">{service.description}</p>
+              <p class="mt-4 max-w-3xl text-sm leading-7 text-[var(--color-text)]"><strong>Ideal para:</strong> {service.forWho}</p>
+            </div>
 
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Qué buscamos</p>
-                <ul class="mt-3 grid gap-3 text-sm leading-6 text-[var(--color-muted)]">
-                  {service.outcomes.map((item) => (
-                    <li class="flex gap-3">
-                      <span class="mt-2 h-2 w-2 rounded-full bg-[var(--color-secondary)]"></span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div class="rounded-[1.2rem] bg-[color:rgba(13,27,42,0.03)] p-5 xl:min-h-full">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Qué buscamos</p>
+              <ul class="mt-3 grid gap-3 text-sm leading-6 text-[var(--color-muted)]">
+                {service.outcomes.map((item) => (
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-2 w-2 rounded-full bg-[var(--color-secondary)]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </article>
@@ -61,8 +61,20 @@ const { site } = Astro.props;
 
     <ul class="grid gap-3 md:grid-cols-3">
       {site.services.secondaryItems.map((item) => (
-        <li class="rounded-[1.2rem] border border-[var(--color-border)] bg-white px-4 py-4 text-sm leading-6 text-[var(--color-text)]">{item}</li>
+        <li class="flex h-full items-start rounded-[1.2rem] border border-[var(--color-border)] bg-white px-4 py-4 text-sm leading-6 text-[var(--color-text)]">{item}</li>
       ))}
     </ul>
+  </div>
+
+  <div class="shell mt-8 flex justify-center">
+    <a
+      href={site.contact.whatsappHref}
+      target="_blank"
+      rel="noreferrer"
+      class="inline-flex items-center justify-center gap-3 rounded-full bg-[var(--color-primary)] px-6 py-4 text-base font-semibold text-white transition hover:translate-y-[-1px] hover:shadow-[0_18px_36px_rgba(13,27,42,0.16)]"
+    >
+      Reservar valoración
+      <span aria-hidden="true">↗</span>
+    </a>
   </div>
 </section>
