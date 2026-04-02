@@ -18,8 +18,8 @@ import { site } from '../data/site';
     <main>
       <HeroSection site={site} />
       <TrustSection site={site} />
-      <AboutSection site={site} />
       <ServicesSection site={site} />
+      <AboutSection site={site} />
       <TeamSection site={site} />
       <TestimonialsSection site={site} />
       <ContactSection site={site} />
@@ -27,10 +27,7 @@ import { site } from '../data/site';
     <footer class="border-t border-[var(--color-border)] py-8 text-sm text-[var(--color-muted)]">
       <div class="shell flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <p>{site.footer.text}</p>
-        <p>
-          Marca, servicios, equipo y contacto editables desde
-          <code class="rounded bg-white px-2 py-1 text-[var(--color-primary)] shadow-[0_8px_20px_rgba(18,22,29,0.05)]">src/data/site.ts</code>
-        </p>
+        <p>{site.brand.locationLabel} · Atención presencial con agenda previa.</p>
       </div>
     </footer>
     <FloatingCTA site={site} />

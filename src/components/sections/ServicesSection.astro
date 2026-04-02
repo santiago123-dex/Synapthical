@@ -8,45 +8,61 @@ interface Props {
 const { site } = Astro.props;
 ---
 
-<section id="servicios" class="section-shell bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(77,74,151,0.03)_100%)]">
-  <div class="shell grid gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-16">
+<section id="servicios" class="section-shell">
+  <div class="shell grid gap-12 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:gap-16">
     <div>
       <span class="section-kicker">{site.services.eyebrow}</span>
-      <h2 class="section-title mt-4 max-w-xl">{site.services.title}</h2>
+      <h2 class="section-title mt-4 max-w-[14ch]">{site.services.title}</h2>
       <p class="mt-6 max-w-xl text-lg leading-8 text-[var(--color-muted)]">{site.services.intro}</p>
     </div>
 
     <div class="grid gap-5">
-      {site.services.items.map((service, index) => (
-        <article class="group rounded-[1.75rem] border border-[var(--color-border)] bg-white p-6 transition hover:border-[var(--color-secondary)] hover:shadow-[0_22px_52px_rgba(18,22,29,0.08)]">
-          <div class="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
-            <div class="max-w-2xl">
-              <div class="flex items-center gap-4">
-                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-secondary)]/10 text-sm font-semibold text-[var(--color-secondary)]">
-                  0{index + 1}
-                </span>
-                <h3 class="font-display text-2xl font-semibold tracking-[-0.04em] text-[var(--color-primary)] transition group-hover:text-[var(--color-accent)]">
-                  {service.title}
-                </h3>
-              </div>
-              <p class="mt-5 text-base leading-7 text-[var(--color-muted)]">{service.description}</p>
-              <p class="mt-4 text-sm leading-6 text-[var(--color-primary)]"><strong>¿Para quién es?</strong> {service.forWho}</p>
+      {site.services.featuredItems.map((service, index) => (
+        <article class="service-feature rounded-[1.85rem] border border-[var(--color-border)] bg-white p-6 shadow-[0_20px_48px_rgba(13,27,42,0.05)] md:p-8">
+          <div class="grid gap-6 md:grid-cols-[auto_minmax(0,1fr)] md:gap-8">
+            <div class="flex items-start gap-4 md:block">
+              <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[color:rgba(25,167,198,0.12)] text-sm font-semibold text-[var(--color-secondary)]">
+                0{index + 1}
+              </span>
             </div>
 
-            <div class="min-w-0 md:w-[16rem]">
-              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">Qué buscamos</p>
-              <ul class="mt-3 space-y-2 text-sm leading-6 text-[var(--color-muted)]">
-                {service.outcomes.map((item) => (
-                  <li class="flex gap-2">
-                    <span class="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-secondary)]"></span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+            <div class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-8">
+              <div>
+                <h3 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-primary)] md:text-[2rem]">{service.title}</h3>
+                <p class="mt-4 text-base leading-7 text-[var(--color-muted)]">{service.description}</p>
+                <p class="mt-4 text-sm leading-6 text-[var(--color-text)]"><strong>Ideal para:</strong> {service.forWho}</p>
+              </div>
+
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Qué buscamos</p>
+                <ul class="mt-3 grid gap-3 text-sm leading-6 text-[var(--color-muted)]">
+                  {service.outcomes.map((item) => (
+                    <li class="flex gap-3">
+                      <span class="mt-2 h-2 w-2 rounded-full bg-[var(--color-secondary)]"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </article>
       ))}
     </div>
+  </div>
+
+  <div class="shell mt-12 grid gap-6 rounded-[1.75rem] border border-[var(--color-border)] bg-[linear-gradient(180deg,#ffffff_0%,rgba(25,167,198,0.03)_100%)] px-6 py-7 md:px-8 md:py-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-start">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">También podemos ayudarte con</p>
+      <p class="mt-3 max-w-sm text-base leading-7 text-[var(--color-muted)]">
+        Servicios complementarios para prevenir recaídas, entender mejor el origen del dolor y volver al deporte con criterios claros.
+      </p>
+    </div>
+
+    <ul class="grid gap-3 md:grid-cols-3">
+      {site.services.secondaryItems.map((item) => (
+        <li class="rounded-[1.2rem] border border-[var(--color-border)] bg-white px-4 py-4 text-sm leading-6 text-[var(--color-text)]">{item}</li>
+      ))}
+    </ul>
   </div>
 </section>

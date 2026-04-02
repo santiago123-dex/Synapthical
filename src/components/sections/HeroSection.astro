@@ -8,65 +8,70 @@ interface Props {
 const { site } = Astro.props;
 ---
 
-<section id="inicio" class="hero-surface relative isolate overflow-hidden pb-20 pt-12 md:pb-28 md:pt-18">
-  <div class="hero-mesh"></div>
-  <div class="hero-curve"></div>
+<section id="inicio" class="hero-surface relative isolate overflow-hidden pb-0 pt-6 md:pt-8">
+  <div class="hero-noise"></div>
+  <div class="hero-spotlight"></div>
 
-  <div class="shell grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:gap-18">
-    <div class="relative z-10 max-w-2xl">
-      <span class="eyebrow">{site.hero.eyebrow}</span>
-      <h1 class="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[0.92] tracking-[-0.06em] text-[var(--color-primary)] md:text-7xl">
-        {site.hero.headline}
-      </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)] md:text-xl">
-        {site.hero.description}
-      </p>
+  <div class="shell relative z-10">
+    <div class="hero-panel grid overflow-hidden rounded-[2.25rem] border border-white/10 bg-[linear-gradient(135deg,#0D1B2A_0%,#10263A_58%,#163D56_100%)] text-white lg:grid-cols-[minmax(0,0.98fr)_minmax(360px,0.88fr)]">
+      <div class="px-6 py-10 md:px-10 md:py-14 lg:px-14 lg:py-16">
+        <span class="eyebrow eyebrow-dark">{site.hero.eyebrow}</span>
+        <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] md:text-6xl lg:text-7xl">
+          {site.hero.headline}
+        </h1>
+        <p class="mt-5 max-w-2xl text-base leading-7 text-white/74 md:text-lg md:leading-8">
+          {site.hero.description}
+        </p>
 
-      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a
-          href={site.hero.primaryCta.href}
-          target="_blank"
-          rel="noreferrer"
-          class="group inline-flex items-center justify-center gap-3 rounded-full bg-[var(--color-secondary)] px-6 py-3.5 text-base font-semibold text-white transition hover:translate-y-[-1px] hover:shadow-[0_18px_40px_rgba(31,175,196,0.24)]"
-        >
-          {site.hero.primaryCta.label}
-          <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
-        </a>
-        <a
-          href={site.hero.secondaryCta.href}
-          class="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-accent)]/25 px-6 py-3.5 text-base font-medium text-[var(--color-accent)] transition hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]/5"
-        >
-          {site.hero.secondaryCta.label}
-        </a>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a
+            href={site.hero.cta.href}
+            target="_blank"
+            rel="noreferrer"
+            class="group inline-flex items-center justify-center gap-3 rounded-full bg-[var(--color-secondary)] px-6 py-4 text-base font-semibold text-white transition hover:translate-y-[-1px] hover:shadow-[0_18px_40px_rgba(25,167,198,0.26)]"
+          >
+            {site.hero.cta.label}
+            <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+          </a>
+          <a
+            href={site.hero.secondaryCta.href}
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-white/16 px-6 py-4 text-base font-medium text-white transition hover:border-white/28 hover:bg-white/6"
+          >
+            {site.hero.secondaryCta.label}
+          </a>
+        </div>
+
+        <p class="mt-6 max-w-2xl text-sm uppercase tracking-[0.16em] text-white/56">{site.hero.supportingLine}</p>
       </div>
 
-      <p class="mt-7 max-w-xl text-sm uppercase tracking-[0.18em] text-[var(--color-muted)]/80">{site.hero.microcopy}</p>
+      <div class="relative flex items-stretch p-4 md:p-6 lg:p-7">
+        <div class="hero-media-shell relative min-h-[26rem] w-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#102233] shadow-[0_30px_80px_rgba(7,17,26,0.34)]">
+          <img src={site.hero.media.src} alt={site.hero.media.alt} class="hero-media-image h-full w-full object-cover" />
+          <div class="hero-media-overlay"></div>
 
-      <div class="mt-10 grid gap-4 sm:grid-cols-3">
-        {site.hero.metrics.map((item) => (
-          <div class="border-t border-[var(--color-border)] pt-4">
-            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">Valor agregado</p>
-            <p class="mt-2 text-sm leading-6 text-[var(--color-text)]">{item}</p>
+          <div class="absolute left-5 top-5 rounded-full border border-white/15 bg-[rgba(7,17,26,0.52)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-md">
+            {site.hero.media.badge}
           </div>
-        ))}
+
+          <div class="absolute inset-x-5 bottom-5 grid gap-4 rounded-[1.4rem] border border-white/10 bg-[rgba(7,17,26,0.58)] p-5 backdrop-blur-md">
+            <p class="max-w-md text-sm leading-6 text-white/78">{site.hero.media.caption}</p>
+            <div class="flex flex-wrap gap-2.5">
+              {site.hero.media.stats.map((item) => (
+                <span class="rounded-full border border-white/12 bg-white/7 px-3 py-2 text-xs font-medium tracking-[0.02em] text-white/88">{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="relative z-10 flex justify-center lg:justify-end">
-      <div class="brand-stage">
-        <div class="brand-stage-ring brand-stage-ring-a"></div>
-        <div class="brand-stage-ring brand-stage-ring-b"></div>
-        <div class="brand-stage-grid"></div>
-        <div class="brand-stage-label brand-stage-label-a">Agenda tu valoración</div>
-        <div class="brand-stage-label brand-stage-label-b">Proceso guiado</div>
-        <div class="brand-stage-core">
-          <img
-            src={site.brand.logo.src}
-            alt={site.brand.logo.alt}
-            class="h-[220px] w-[220px] rounded-full object-contain md:h-[280px] md:w-[280px]"
-          />
-        </div>
-      </div>
+    <div class="hero-proof-strip relative z-20 mt-[-1.25rem] grid gap-4 rounded-[1.75rem] border border-[var(--color-border)] bg-white px-5 py-5 shadow-[0_18px_40px_rgba(13,27,42,0.08)] md:grid-cols-3 md:px-8 md:py-6">
+      {site.hero.proofItems.map((item) => (
+        <article class="grid gap-2 border-b border-[var(--color-border)] pb-4 last:border-b-0 last:pb-0 md:border-b-0 md:border-r md:pr-5 md:last:border-r-0 md:last:pr-0">
+          <p class="text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-accent)]">{item.label}</p>
+          <p class="text-sm leading-6 text-[var(--color-muted)]">{item.detail}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>
