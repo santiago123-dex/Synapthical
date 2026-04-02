@@ -1,0 +1,36 @@
+---
+import type { SiteConfig } from '../../data/site';
+
+interface Props {
+  site: SiteConfig;
+}
+
+const { site } = Astro.props;
+---
+
+<section id="servicios" class="section-shell bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(77,74,151,0.03)_100%)]">
+  <div class="shell grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+    <div>
+      <span class="section-kicker">{site.services.eyebrow}</span>
+      <h2 class="section-title mt-4 max-w-xl">{site.services.title}</h2>
+      <p class="mt-6 max-w-xl text-lg leading-8 text-[var(--color-muted)]">{site.services.intro}</p>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {site.services.items.map((service, index) => (
+        <article class="group rounded-[1.75rem] border border-[var(--color-border)] bg-white p-6 transition hover:border-[var(--color-secondary)] hover:shadow-[0_22px_52px_rgba(18,22,29,0.08)]">
+          <div class="flex items-center justify-between gap-4">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-secondary)]/10 text-sm font-semibold text-[var(--color-secondary)]">
+              0{index + 1}
+            </span>
+            <span class="h-px flex-1 bg-[linear-gradient(90deg,var(--color-border),transparent)]"></span>
+          </div>
+          <h3 class="mt-6 font-display text-2xl font-semibold tracking-[-0.04em] text-[var(--color-primary)] transition group-hover:text-[var(--color-accent)]">
+            {service.title}
+          </h3>
+          <p class="mt-4 text-base leading-7 text-[var(--color-muted)]">{service.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import type { SiteConfig } from '../../data/site';
+
+interface Props {
+  site: SiteConfig;
+}
+
+const { site } = Astro.props;
+---
+
+<section id="nosotros" class="section-shell">
+  <div class="shell grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start">
+    <div>
+      <span class="section-kicker">{site.about.eyebrow}</span>
+      <h2 class="section-title mt-4 max-w-xl">{site.about.title}</h2>
+    </div>
+
+    <div class="space-y-6 text-lg leading-8 text-[var(--color-muted)]">
+      <p>{site.about.description}</p>
+      <p>{site.about.mission}</p>
+    </div>
+  </div>
+
+  <div class="shell mt-16 grid gap-8 md:grid-cols-3">
+    {site.about.highlights.map((item, index) => (
+      <article class="relative border-t border-[var(--color-border)] pt-6">
+        <span class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-secondary)]">0{index + 1}</span>
+        <h3 class="mt-4 font-display text-2xl font-semibold tracking-[-0.04em] text-[var(--color-primary)]">{item.title}</h3>
+        <p class="mt-4 text-base leading-7 text-[var(--color-muted)]">{item.description}</p>
+      </article>
+    ))}
+  </div>
+</section>

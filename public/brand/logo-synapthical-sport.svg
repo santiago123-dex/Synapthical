@@ -1,0 +1,34 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#0F141B"/>
+  <circle cx="256" cy="256" r="226" fill="#F7F7F5" stroke="#4B525C" stroke-width="14"/>
+  <circle cx="256" cy="256" r="212" stroke="#D5D8DE" stroke-width="2"/>
+  <path d="M315 109C338 109 357 128 357 151C357 174 338 193 315 193C292 193 273 174 273 151C273 128 292 109 315 109Z" fill="#1FAFC4" fill-opacity="0.08"/>
+  <path d="M313 118C333 118 349 134 349 154C349 175 333 191 313 191C293 191 277 175 277 154C277 134 293 118 313 118Z" stroke="#1FAFC4" stroke-width="3"/>
+  <path d="M234 128C250 137 260 153 260 171C260 189 251 204 235 214" stroke="#1FAFC4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M306 121C286 129 272 145 270 165C268 185 276 203 292 217" stroke="#1FAFC4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M318 153C353 169 376 203 376 243C376 300 329 347 272 347H264" stroke="#1FAFC4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M210 152C232 142 259 145 277 160C298 178 306 206 300 233" stroke="#1FAFC4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M246 165L274 165" stroke="#1FAFC4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M210 203C227 197 243 185 252 167" stroke="#1FAFC4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M202 162C228 173 250 193 261 220" stroke="#1FAFC4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M231 231C247 230 259 236 270 248C281 260 287 274 287 290" stroke="#1FAFC4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M291 248C334 248 369 283 369 326" stroke="#1FAFC4" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="198" cy="163" r="11" fill="#4D4A97"/>
+  <circle cx="209" cy="203" r="11" fill="#1FAFC4"/>
+  <circle cx="246" cy="165" r="11" fill="#1FAFC4"/>
+  <circle cx="273" cy="165" r="11" fill="#1FAFC4"/>
+  <circle cx="287" cy="247" r="11" fill="#1FAFC4"/>
+  <circle cx="315" cy="153" r="11" fill="#1FAFC4"/>
+  <path d="M337 162C349 164 361 171 370 183C381 197 386 212 386 227C386 252 373 275 352 289C331 303 307 303 289 294" stroke="#1FAFC4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M343 298C339 322 321 339 299 347C277 355 252 351 235 336C221 323 214 306 214 286C214 267 221 250 236 236C247 226 257 220 267 214" stroke="#1FAFC4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M339 205C365 213 384 235 387 263" stroke="#1FAFC4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M125 132C135 132 143 140 143 150C143 160 135 168 125 168C115 168 107 160 107 150C107 140 115 132 125 132Z" stroke="#4D4A97" stroke-width="4"/>
+  <path d="M160 107C168 107 175 114 175 122C175 130 168 137 160 137C152 137 145 130 145 122C145 114 152 107 160 107Z" stroke="#1FAFC4" stroke-width="4"/>
+  <path d="M121 186C130 186 137 193 137 202C137 211 130 218 121 218C112 218 105 211 105 202C105 193 112 186 121 186Z" stroke="#4D4A97" stroke-width="4"/>
+  <path d="M158 173C164 173 170 179 170 185C170 191 164 197 158 197C152 197 146 191 146 185C146 179 152 173 158 173Z" stroke="#1FAFC4" stroke-width="4"/>
+  <path d="M95 322H417" stroke="#1FAFC4" stroke-width="4"/>
+  <path d="M96 332H418" stroke="#4D4A97" stroke-width="2" opacity="0.7"/>
+  <path d="M95 340H417" stroke="#1FAFC4" stroke-width="1.5" opacity="0.6"/>
+  <text x="74" y="392" fill="#4D4A97" font-family="Arial, Helvetica, sans-serif" font-style="italic" font-size="58" font-weight="700" letter-spacing="1.5">SYNAPTHICAL</text>
+  <text x="273" y="432" fill="#1FAFC4" font-family="Arial, Helvetica, sans-serif" font-style="italic" font-size="58" font-weight="700" letter-spacing="1.5">SPORT</text>
+</svg>

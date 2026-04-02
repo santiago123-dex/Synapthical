@@ -1,0 +1,72 @@
+---
+import type { SiteConfig } from '../../data/site';
+
+interface Props {
+  site: SiteConfig;
+}
+
+const { site } = Astro.props;
+---
+
+<section id="inicio" class="hero-surface relative isolate overflow-hidden pb-20 pt-12 md:pb-28 md:pt-18">
+  <div class="hero-mesh"></div>
+  <div class="hero-curve"></div>
+
+  <div class="shell grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:gap-18">
+    <div class="relative z-10 max-w-2xl">
+      <span class="eyebrow">{site.hero.eyebrow}</span>
+      <h1 class="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[0.92] tracking-[-0.06em] text-[var(--color-primary)] md:text-7xl">
+        {site.hero.headline}
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)] md:text-xl">
+        {site.hero.description}
+      </p>
+
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a
+          href={site.hero.primaryCta.href}
+          target="_blank"
+          rel="noreferrer"
+          class="group inline-flex items-center justify-center gap-3 rounded-full bg-[var(--color-secondary)] px-6 py-3.5 text-base font-semibold text-white transition hover:translate-y-[-1px] hover:shadow-[0_18px_40px_rgba(31,175,196,0.24)]"
+        >
+          {site.hero.primaryCta.label}
+          <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+        </a>
+        <a
+          href={site.hero.secondaryCta.href}
+          class="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-accent)]/25 px-6 py-3.5 text-base font-medium text-[var(--color-accent)] transition hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]/5"
+        >
+          {site.hero.secondaryCta.label}
+        </a>
+      </div>
+
+      <p class="mt-7 max-w-xl text-sm uppercase tracking-[0.18em] text-[var(--color-muted)]/80">{site.hero.microcopy}</p>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+        {site.hero.metrics.map((item) => (
+          <div class="border-t border-[var(--color-border)] pt-4">
+            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">Proceso</p>
+            <p class="mt-2 text-sm leading-6 text-[var(--color-text)]">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="relative z-10 flex justify-center lg:justify-end">
+      <div class="brand-stage">
+        <div class="brand-stage-ring brand-stage-ring-a"></div>
+        <div class="brand-stage-ring brand-stage-ring-b"></div>
+        <div class="brand-stage-grid"></div>
+        <div class="brand-stage-label brand-stage-label-a">Movimiento</div>
+        <div class="brand-stage-label brand-stage-label-b">Return to play</div>
+        <div class="brand-stage-core">
+          <img
+            src={site.brand.logo.src}
+            alt={site.brand.logo.alt}
+            class="h-[220px] w-[220px] rounded-full object-contain md:h-[280px] md:w-[280px]"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+---
+import type { SiteConfig } from '../../data/site';
+
+interface Props {
+  site: SiteConfig;
+}
+
+const { site } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 border-b border-[color:rgba(217,221,227,0.7)] bg-[color:rgba(247,247,245,0.84)] backdrop-blur-xl">
+  <div class="shell flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between">
+    <a href="#inicio" class="flex items-center gap-3 text-[var(--color-primary)] transition hover:opacity-90">
+      <img src={site.brand.logo.src} alt={site.brand.logo.alt} class="h-12 w-12 rounded-full border border-[var(--color-border)] bg-white object-contain shadow-[0_10px_24px_rgba(18,22,29,0.08)]" />
+      <span>
+        <strong class="block font-display text-lg font-semibold tracking-[-0.03em]">{site.brand.name}</strong>
+        <span class="text-sm text-[var(--color-muted)]">Rehab deportiva · Armenia, Quindío</span>
+      </span>
+    </a>
+
+    <nav class="overflow-x-auto">
+      <ul class="flex min-w-max items-center gap-2 text-sm text-[var(--color-muted)] md:justify-center">
+        {site.nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="inline-flex rounded-full px-4 py-2 transition hover:bg-white hover:text-[var(--color-primary)] hover:shadow-[0_10px_24px_rgba(18,22,29,0.05)]"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a
+      href={site.contact.whatsappHref}
+      target="_blank"
+      rel="noreferrer"
+      class="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-secondary)] px-5 py-3 text-sm font-semibold text-white transition hover:translate-y-[-1px] hover:shadow-[0_18px_36px_rgba(31,175,196,0.2)]"
+    >
+      Agenda ahora
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</header>

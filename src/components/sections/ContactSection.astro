@@ -1,0 +1,69 @@
+---
+import type { SiteConfig } from '../../data/site';
+
+interface Props {
+  site: SiteConfig;
+}
+
+const { site } = Astro.props;
+---
+
+<section id="contacto" class="section-shell pb-20">
+  <div class="shell overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#12161D_0%,#1A2130_55%,#27245D_100%)] px-6 py-10 text-white shadow-[0_32px_80px_rgba(18,22,29,0.18)] md:px-10 md:py-14">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.85fr)] lg:items-start">
+      <div>
+        <span class="eyebrow eyebrow-dark">{site.contact.eyebrow}</span>
+        <h2 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-[-0.05em] md:text-5xl">{site.contact.title}</h2>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/72">{site.contact.description}</p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={site.contact.whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-secondary)] px-6 py-3.5 text-base font-semibold text-white transition hover:translate-y-[-1px] hover:shadow-[0_18px_44px_rgba(31,175,196,0.24)]"
+          >
+            WhatsApp
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a
+            href={site.contact.phoneHref}
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-white/18 px-6 py-3.5 text-base font-medium text-white transition hover:border-white/40 hover:bg-white/5"
+          >
+            Llamar ahora
+          </a>
+        </div>
+      </div>
+
+      <div class="grid gap-5 rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-md">
+        <div>
+          <p class="text-xs uppercase tracking-[0.2em] text-white/45">Teléfono / WhatsApp</p>
+          <a href={site.contact.phoneHref} class="mt-2 block text-xl font-semibold text-white transition hover:text-[var(--color-secondary)]">
+            {site.contact.phoneDisplay}
+          </a>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[0.2em] text-white/45">Dirección</p>
+          <a
+            href={site.contact.mapHref}
+            target="_blank"
+            rel="noreferrer"
+            class="mt-2 block text-base leading-7 text-white/80 transition hover:text-white"
+          >
+            {site.contact.address}
+          </a>
+        </div>
+        <div class="grid gap-1">
+          <p class="text-xs uppercase tracking-[0.2em] text-white/45">Horario</p>
+          {site.contact.schedule.map((item) => <p class="text-base text-white/80">{item}</p>)}
+        </div>
+        <div class="grid gap-2 border-t border-white/10 pt-5 text-sm text-white/70 sm:grid-cols-2">
+          <a href={site.contact.instagramHref} target="_blank" rel="noreferrer" class="transition hover:text-[var(--color-secondary)]">
+            {site.contact.instagramHandle}
+          </a>
+          <a href={site.contact.emailHref} class="transition hover:text-[var(--color-secondary)]">{site.contact.email}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

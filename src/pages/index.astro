@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import AboutSection from '../components/sections/AboutSection.astro';
+import ServicesSection from '../components/sections/ServicesSection.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout>
+  <div class="min-h-screen bg-[var(--color-surface)] text-[var(--color-text)]">
+    <Header site={site} />
+    <main>
+      <HeroSection site={site} />
+      <AboutSection site={site} />
+      <ServicesSection site={site} />
+      <ContactSection site={site} />
+    </main>
+    <footer class="border-t border-[var(--color-border)] py-8 text-sm text-[var(--color-muted)]">
+      <div class="shell flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+        <p>{site.footer.text}</p>
+        <p>
+          Marca, colores y contacto editables desde
+          <code class="rounded bg-white px-2 py-1 text-[var(--color-primary)] shadow-[0_8px_20px_rgba(18,22,29,0.05)]">src/data/site.ts</code>
+        </p>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

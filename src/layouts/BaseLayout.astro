@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+const title = Astro.props.title ?? site.seo.title;
+const description = Astro.props.description ?? site.seo.description;
+const colorVars = Object.entries(site.brand.colors)
+  .map(([key, value]) => `--color-${key}: ${value}`)
+  .join('; ');
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content={site.brand.colors.surface} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={site.seo.ogImage} />
+    <meta property="og:locale" content="es_CO" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={site.seo.ogImage} />
+  </head>
+  <body style={colorVars}>
+    <slot />
+  </body>
+</html>
