@@ -1,0 +1,506 @@
+@import "tailwindcss";
+
+:root {
+  --axial-primary: #0d1b2a;
+  --axial-secondary: #ffffff;
+  --axial-accent: #1e3a5f;
+  --axial-border: color-mix(in srgb, var(--axial-primary) 14%, transparent);
+  --axial-border-strong: color-mix(in srgb, var(--axial-primary) 24%, transparent);
+  --axial-muted: color-mix(in srgb, var(--axial-primary) 68%, transparent);
+  --axial-soft: color-mix(in srgb, var(--axial-secondary) 12%, transparent);
+  --axial-glow: color-mix(in srgb, var(--axial-accent) 72%, transparent);
+  --container-max: 90rem;
+}
+
+@theme inline {
+  --color-primary: var(--axial-primary);
+  --color-secondary: var(--axial-secondary);
+  --color-accent: var(--axial-accent);
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-sans: "Space Grotesk", sans-serif;
+}
+
+html {
+  background: var(--axial-secondary);
+  color: var(--axial-primary);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 14%, color-mix(in srgb, var(--axial-accent) 12%, transparent), transparent 28%),
+    radial-gradient(circle at 86% 10%, color-mix(in srgb, var(--axial-primary) 6%, transparent), transparent 22%),
+    radial-gradient(circle at 72% 74%, color-mix(in srgb, var(--axial-accent) 10%, transparent), transparent 26%),
+    linear-gradient(180deg, color-mix(in srgb, var(--axial-secondary) 96%, var(--axial-accent) 4%) 0%, var(--axial-secondary) 100%);
+  color: var(--axial-primary);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  opacity: 0.16;
+  background-image:
+    linear-gradient(transparent 0 96%, color-mix(in srgb, var(--axial-primary) 8%, transparent) 96% 100%),
+    linear-gradient(90deg, transparent 0 96%, color-mix(in srgb, var(--axial-primary) 7%, transparent) 96% 100%),
+    radial-gradient(circle at center, color-mix(in srgb, var(--axial-primary) 10%, transparent) 0 1px, transparent 1px 100%);
+  background-size: 72px 72px, 72px 72px, 18px 18px;
+  mix-blend-mode: multiply;
+}
+
+body::after {
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--axial-accent) 90%, transparent);
+  color: var(--axial-secondary);
+}
+
+.site-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.section-shell {
+  width: min(100% - 2rem, var(--container-max));
+  margin-inline: auto;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--axial-muted);
+}
+
+.section-kicker::before {
+  content: "";
+  width: 3.5rem;
+  height: 1px;
+  background: color-mix(in srgb, currentColor 52%, transparent);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.2vw, 3.9rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.section-copy {
+  max-width: 38rem;
+  color: var(--axial-muted);
+  font-size: clamp(0.96rem, 1.05vw, 1.06rem);
+  line-height: 1.65;
+}
+
+.eyebrow-chip {
+  border: 1px solid var(--axial-border);
+  background: color-mix(in srgb, var(--axial-secondary) 4%, transparent);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.surface-panel {
+  position: relative;
+  overflow: hidden;
+  --axial-border: color-mix(in srgb, var(--axial-secondary) 16%, transparent);
+  --axial-border-strong: color-mix(in srgb, var(--axial-secondary) 28%, transparent);
+  --axial-muted: color-mix(in srgb, var(--axial-secondary) 72%, transparent);
+  border: 1px solid var(--axial-border);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--axial-secondary) 9%, transparent), transparent),
+    color-mix(in srgb, var(--axial-primary) 88%, var(--axial-accent) 12%);
+  color: var(--axial-secondary);
+  backdrop-filter: blur(14px);
+}
+
+.theme-dark {
+  --axial-border: color-mix(in srgb, var(--axial-secondary) 16%, transparent);
+  --axial-border-strong: color-mix(in srgb, var(--axial-secondary) 28%, transparent);
+  --axial-muted: color-mix(in srgb, var(--axial-secondary) 72%, transparent);
+  color: var(--axial-secondary);
+}
+
+.surface-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--axial-secondary) 14%, transparent), transparent 45%, color-mix(in srgb, var(--axial-accent) 22%, transparent));
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.line-frame {
+  position: relative;
+}
+
+.line-frame::before,
+.line-frame::after {
+  content: "";
+  position: absolute;
+  background: color-mix(in srgb, var(--axial-secondary) 16%, transparent);
+}
+
+.line-frame::before {
+  inset: 0 auto auto 0;
+  width: 7rem;
+  height: 1px;
+}
+
+.line-frame::after {
+  inset: 0 0 auto auto;
+  width: 1px;
+  height: 7rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  border-radius: 999px;
+  padding: 0.95rem 1.4rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition:
+    transform 260ms ease,
+    background-color 260ms ease,
+    border-color 260ms ease,
+    color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.btn-primary {
+  border: 1px solid color-mix(in srgb, var(--axial-secondary) 18%, transparent);
+  background: var(--axial-secondary);
+  color: var(--axial-primary);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--axial-secondary) 0%, transparent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--axial-secondary) 84%, var(--axial-accent) 16%);
+  box-shadow: 0 18px 44px -24px color-mix(in srgb, var(--axial-secondary) 100%, transparent);
+}
+
+.btn-secondary {
+  border: 1px solid var(--axial-border);
+  background: color-mix(in srgb, var(--axial-secondary) 5%, transparent);
+  color: var(--axial-secondary);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--axial-border-strong);
+  background: color-mix(in srgb, var(--axial-accent) 30%, transparent);
+}
+
+.nav-link {
+  position: relative;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--axial-muted);
+  transition: color 220ms ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.55rem;
+  width: 100%;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: right;
+  background: var(--axial-secondary);
+  transition: transform 260ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--axial-secondary);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.metric-inline {
+  border-top: 1px solid var(--axial-border);
+  padding-top: 1rem;
+}
+
+.metric-inline dt {
+  color: var(--axial-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.metric-inline dd {
+  margin-top: 0.55rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 2.8vw, 3rem);
+  line-height: 1;
+}
+
+.mono-badge {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  width: 4.75rem;
+  border: 1px solid var(--axial-border-strong);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.08em;
+  background:
+    radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--axial-secondary) 22%, transparent), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--axial-secondary) 8%, transparent), transparent),
+    color-mix(in srgb, var(--axial-accent) 55%, var(--axial-primary) 45%);
+}
+
+.reveal {
+  opacity: 0;
+  animation: fade-up 820ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+.delay-100 { --delay: 100ms; }
+.delay-200 { --delay: 200ms; }
+.delay-300 { --delay: 300ms; }
+.delay-400 { --delay: 400ms; }
+
+.drift {
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+.pulse-soft {
+  animation: pulse-soft 7.5s ease-in-out infinite;
+}
+
+.cut-top,
+.cut-bottom {
+  position: relative;
+}
+
+.cut-top::before {
+  content: "";
+  position: absolute;
+  inset: -1px 0 auto;
+  height: 5rem;
+  background: linear-gradient(165deg, transparent 0 42%, color-mix(in srgb, var(--axial-primary) 8%, transparent) 42% 43%, transparent 43% 100%);
+  pointer-events: none;
+}
+
+.cut-bottom::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 5rem;
+  background: linear-gradient(345deg, transparent 0 48%, color-mix(in srgb, var(--axial-primary) 8%, transparent) 48% 49%, transparent 49% 100%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--axial-secondary) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(color-mix(in srgb, var(--axial-secondary) 7%, transparent) 1px, transparent 1px);
+  background-size: clamp(2.5rem, 4vw, 5rem) clamp(2.5rem, 4vw, 5rem);
+  mask-image: radial-gradient(circle at center, black 35%, transparent 82%);
+  opacity: 0.55;
+}
+
+.visual-orb {
+  border-radius: 999px;
+  filter: blur(48px);
+  background: radial-gradient(circle, color-mix(in srgb, var(--axial-secondary) 16%, transparent), color-mix(in srgb, var(--axial-accent) 52%, transparent) 45%, transparent 72%);
+}
+
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: 0.8;
+  color: color-mix(in srgb, var(--axial-secondary) 18%, transparent);
+}
+
+.contact-link {
+  color: var(--axial-muted);
+  transition: color 220ms ease;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  color: var(--axial-secondary);
+}
+
+.marquee-shell {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  min-width: max-content;
+  align-items: center;
+  gap: 2.5rem;
+  animation: marquee 24s linear infinite;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.marquee-item::after {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, currentColor 36%, transparent);
+}
+
+.scroll-stage {
+  will-change: transform, opacity;
+}
+
+@supports (animation-timeline: view()) {
+  .reveal-view {
+    opacity: 0;
+    animation: reveal-view linear both;
+    animation-timeline: view();
+    animation-range: entry 12% cover 30%;
+  }
+
+  .scroll-stage {
+    opacity: 0.2;
+    animation: scroll-stage linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 32%;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(-1.2rem, -0.8rem, 0) rotate(-3deg);
+  }
+  to {
+    transform: translate3d(1.4rem, 1rem, 0) rotate(3deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes reveal-view {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-stage {
+  from {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-view {
+    opacity: 1;
+    transform: none;
+  }
+}

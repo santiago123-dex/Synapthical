@@ -1,0 +1,55 @@
+---
+const team = [
+  {
+    initials: 'LM',
+    name: 'Laura Méndez',
+    specialty: 'Rehabilitación deportiva',
+    bio: 'Especialista en retorno al deporte, fuerza aplicada a la recuperación y readaptación posterior a lesiones de rodilla, tobillo y cadera.',
+  },
+  {
+    initials: 'CH',
+    name: 'Camilo Herrera',
+    specialty: 'Columna y control postural',
+    bio: 'Enfoca su práctica en dolor cervical y lumbar, exposición gradual al movimiento y reeducación para entornos de oficina y alta demanda cognitiva.',
+  },
+  {
+    initials: 'VR',
+    name: 'Valentina Ruiz',
+    specialty: 'Dolor persistente y neurofunción',
+    bio: 'Integra abordajes contemporáneos del dolor con neurorrehabilitación funcional para recuperar autonomía, coordinación y tolerancia a la actividad.',
+  },
+];
+---
+
+<section id="equipo" class="py-24 sm:py-28 lg:py-36">
+  <div class="section-shell">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-10">
+      <div class="reveal-view">
+        <span class="section-kicker">Equipo clínico</span>
+        <h2 class="section-title mt-6 max-w-xl">Fisioterapeutas que combinan criterio, escucha y método.</h2>
+      </div>
+
+      <div class="space-y-5">
+        {team.map((member, idx) => (
+          <article class:list={[
+            'reveal-view grid gap-6 border-t border-[color:var(--axial-border)] py-7 sm:grid-cols-[5.5rem_minmax(0,1fr)] sm:gap-8 sm:py-8',
+            idx === 2 && 'border-b border-[color:var(--axial-border)]',
+          ]}>
+            <div class="mono-badge h-18 w-18 text-xl">{member.initials}</div>
+            <div class="grid gap-4 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-10">
+              <div>
+                <h3 class="font-display text-[clamp(1.75rem,2.8vw,2.75rem)] leading-[0.95] tracking-[-0.05em] text-primary">
+                  {member.name}
+                </h3>
+                <p class="mt-3 text-sm uppercase tracking-[0.24em] text-[color:var(--axial-muted)]">{member.specialty}</p>
+              </div>
+              <p class="max-w-2xl text-base leading-8 text-secondary/90 sm:text-lg">
+                {member.bio}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
