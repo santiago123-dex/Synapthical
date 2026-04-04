@@ -378,27 +378,34 @@ a {
 
 .marquee-track {
   display: inline-flex;
-  min-width: max-content;
   align-items: center;
-  gap: 2.5rem;
-  animation: marquee 24s linear infinite;
+  width: max-content;
+  gap: 0;
+  animation: marquee 26s linear infinite;
 }
 
-.marquee-item {
+.marquee-pill {
   display: inline-flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
+  padding-right: 2rem;
   font-size: 0.82rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
 }
 
-.marquee-item::after {
+.marquee-pill::after {
   content: "";
-  width: 0.4rem;
-  height: 0.4rem;
+  width: 0.35rem;
+  height: 0.35rem;
   border-radius: 999px;
-  background: color-mix(in srgb, currentColor 36%, transparent);
+  background: color-mix(in srgb, currentColor 32%, transparent);
+}
+
+@media (hover: hover) {
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
 }
 
 .scroll-stage {
@@ -469,7 +476,7 @@ a {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(-33.333%);
   }
 }
 
