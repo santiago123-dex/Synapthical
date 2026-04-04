@@ -17,7 +17,7 @@ const differentiators = [
 
 <section id="nosotros" class="cut-bottom relative py-20 sm:py-24 lg:py-28">
   <div class="section-shell">
-    <div class="surface-panel rounded-[2rem] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+    <div class="surface-panel rounded-4xl px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
       <div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-12">
         <div class="reveal-view order-2 lg:order-1">
           <span class="section-kicker">Nosotros</span>
@@ -31,10 +31,10 @@ const differentiators = [
             Trabajamos con sesiones personalizadas, evaluación funcional y seguimiento cercano para que el proceso de recuperación se sienta ordenado, entendible y realmente útil para tu día a día.
           </p>
 
-          <div class="mt-8 grid gap-0 border-t border-[color:var(--axial-border)] lg:max-w-2xl">
+          <div class="mt-8 grid gap-0 border-t border-(--axial-border)lg:max-w-2xl">
             {differentiators.map((item) => (
-              <article class="reveal-view grid gap-3 border-b border-[color:var(--axial-border)] py-5 sm:grid-cols-[minmax(0,11rem)_minmax(0,1fr)] sm:gap-6 sm:py-6">
-                <p class="text-sm uppercase tracking-[0.24em] text-[color:var(--axial-muted)]">{item.label}</p>
+              <article class="reveal-view grid gap-3 border-b border-(--axial-border) py-5 sm:grid-cols-[minmax(0,11rem)_minmax(0,1fr)] sm:gap-6 sm:py-6">
+                <p class="text-sm uppercase tracking-[0.24em] text-(--axial-muted)">{item.label}</p>
                 <p class="max-w-xl text-[0.98rem] leading-7 text-secondary/90">{item.copy}</p>
               </article>
             ))}
@@ -42,15 +42,15 @@ const differentiators = [
         </div>
 
         <div class="reveal-view order-1 lg:order-2">
-          <div class="overflow-hidden rounded-[1.5rem] border border-[color:var(--axial-border)] bg-secondary/5">
+          <div class="overflow-hidden rounded-3xl border border-(--axial-border) bg-secondary/5">
             <img
-              src="/clinic-exterior-demo.svg"
+              src="/img1.png"
               alt="Vista demo del exterior del centro AXIAL"
               class="h-full w-full object-cover"
               loading="lazy"
             />
           </div>
-          <p class="mt-4 text-[0.72rem] uppercase tracking-[0.24em] text-[color:var(--axial-muted)]">
+          <p class="mt-4 text-[0.72rem] uppercase tracking-[0.24em] text-(--axial-muted)">
             Visual demo del exterior del centro
           </p>
         </div>

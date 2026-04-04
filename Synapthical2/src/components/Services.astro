@@ -40,19 +40,19 @@ const services = [
         {services.map((service, idx) => (
           <article
             class:list={[
-              'reveal-view group relative border-t border-[color:var(--axial-border)] py-6 sm:py-7',
+              'reveal-view group relative border-t border-(--axial-border) py-6 sm:py-7',
               idx % 2 === 1 ? 'lg:ml-16' : 'lg:mr-16',
             ]}
           >
             <div class="grid gap-4 sm:grid-cols-[5rem_minmax(0,1fr)] sm:gap-8">
-              <p class="font-display text-[1.6rem] leading-none tracking-[-0.08em] text-[color:var(--axial-muted)] transition-colors duration-300 group-hover:text-primary">
+              <p class="font-display text-[1.6rem] leading-none tracking-[-0.08em] text-(--axial-muted) transition-colors duration-300 group-hover:text-primary">
                 {service.index}
               </p>
               <div>
-                <h3 class="font-display text-[clamp(1.35rem,2vw,2rem)] leading-[1] tracking-[-0.04em] text-primary">
+                <h3 class="font-display text-[clamp(1.35rem,2vw,2rem)] leading-none tracking-[-0.04em] text-primary">
                   {service.title}
                 </h3>
-                <p class="mt-3 max-w-xl text-[0.98rem] leading-7 text-[color:var(--axial-muted)]">
+                <p class="mt-3 max-w-xl text-[0.98rem] leading-7 text-(--axial-muted)">
                   {service.copy}
                 </p>
               </div>
